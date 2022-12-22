@@ -1,0 +1,97 @@
+@import "../styles/variables.scss";
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: $bg;
+  box-shadow: 0 8px 12px rgb($black, 0.1);
+  z-index: 100;
+  transition: 0.3s ease all;
+
+  &__container {
+    height: $header-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 20px;
+    font-weight: $font-bold;
+    color: $black;
+
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  &__menu {
+    @media screen and (max-width: 768px) {
+      position: fixed;
+      width: 100%;
+      top: $header-height;
+      left: 0;
+      text-align: center;
+      padding: 2rem 4rem;
+      background-color: $bg;
+      box-shadow: 0 8px 12px rgb($black, 0.1);
+      transition: 0.3s ease all;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    // show menu
+    &.showMenu {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      gap: 2.5rem;
+    }
+  }
+
+  &__link {
+    font-size: 15px;
+    color: $black;
+
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  &__button {
+    margin-top: 1.5rem;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 0;
+    }
+  }
+
+  &__toggle {
+    display: inline-flex;
+    font-size: 1.5rem;
+    color: $black;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+}
